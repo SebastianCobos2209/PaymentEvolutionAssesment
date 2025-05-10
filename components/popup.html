@@ -1,0 +1,50 @@
+<div class="modal fade" id="workModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDateTitle">Edit</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="workForm">
+          <div class="mb-3">
+            <label for="workId" class="form-label">ID </label>
+            <input type="text" class="form-control" id="workId" required />
+          </div>
+          <div class="mb-3">
+            <label for="startingTime" class="form-label">Starting Date</label>
+            <input
+              type="time"
+              class="form-control"
+              id="startingTime"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="endingTime" class="form-label">End Date</label>
+            <input type="time" class="form-control" id="endingTime" required />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="deleteWorkBtn">
+          Delete
+        </button>
+        <button type="button" class="btn btn-success" id="approveBtn">
+          Approve
+        </button>
+        <button type="button" class="btn btn-warning" id="declineBtn">
+          Denied
+        </button>
+        <button type="button" class="btn btn-primary" id="saveWorkBtn">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
