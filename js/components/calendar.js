@@ -37,20 +37,12 @@ function convertTimeToMinutes(timeStr) {
   return hours * 60 + minutes;
 }
 
-function formatDate(date) {
-  return date.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit" });
-}
-
 function renderWorkGrid() {
   const $grid = $(".work-grid");
   $grid.empty();
   const startDate = new Date(currentWeekStart);
   const endDate = new Date(currentWeekStart);
   endDate.setDate(startDate.getDate() + 6);
-
-  $("#currentWeekRange").text(
-    `From ${formatDate(startDate)} to ${formatDate(endDate)}`
-  );
 
   for (let row = 1; row <= 12; row++) {
     const $workRow = $('<div class="work-row"></div>');
@@ -106,7 +98,7 @@ function setupWorkListeners() {
 
 function showWorkModal(date, workIdx) {
   const [year, month, day] = date.split("-");
-  $("#modalDateTitle").text(`work ${workIdx} - ${day}/${month}/${year}`);
+  $("#modalDateTitle").text(`work hours done - ${day}/${month}/${year}`);
 
   $("#workForm")[0].reset();
   $("#deleteWorkyBtn").hide();
