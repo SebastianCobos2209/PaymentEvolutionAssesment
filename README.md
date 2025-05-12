@@ -1,6 +1,6 @@
 # Q1 
 
-Use of jquery
+Use of jquery and grid
 
 ## Running
 
