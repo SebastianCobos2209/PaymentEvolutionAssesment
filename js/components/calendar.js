@@ -8,6 +8,7 @@ function initCalendar() {
   renderWorkGrid();
   setupWorkListeners();
   setupModalWork();
+  updateDayDates(currentWeekStart);
 }
 
 function getStartOfWeek(date) {
@@ -35,6 +36,31 @@ function convertTimeToMinutes(timeStr) {
   if (!timeStr) return 0;
   const [hours, minutes] = timeStr.split(":").map(Number);
   return hours * 60 + minutes;
+}
+
+function updateDayDates(startOfWeek) {
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dateElements = document.querySelectorAll(".day-date");
+
+  daysOfWeek.forEach((day, index) => {
+    const currentDate = new Date(startOfWeek);
+    currentDate.setDate(startOfWeek.getDate() + index);
+
+    const formattedDate = currentDate.toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+    });
+
+    dateElements[index].textContent = formattedDate;
+  });
 }
 
 function renderWorkGrid() {
